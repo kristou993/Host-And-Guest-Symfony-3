@@ -1,0 +1,9 @@
+{% extends "@HostAndGuest/layout3.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block contenu %}
+<p>
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+</p>
+{% endblock %}

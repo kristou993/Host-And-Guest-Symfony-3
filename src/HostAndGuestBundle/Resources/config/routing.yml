@@ -1,0 +1,65 @@
+host_and_guest_homepage:
+    path:     /rss
+    defaults: { _controller: HostAndGuestBundle:Default:index }
+first:
+    path:     /hello
+    defaults: { _controller: HostAndGuestBundle:experience:index }
+FrontOffice:
+    path:     /front
+    defaults: { _controller: HostAndGuestBundle:experience:Front }
+Display:
+    path:     /liste
+    defaults: { _controller: HostAndGuestBundle:experience:ListeEx }
+Add:
+    path:     /addex
+    defaults: { _controller: HostAndGuestBundle:experience:addEx }
+Welcome:
+    path:     /user
+    defaults: { _controller: HostAndGuestBundle:experience:Userx }
+BackOffice:
+    path:     /back
+    defaults: { _controller: HostAndGuestBundle:experience:Back }
+ExperienceCustom:
+    path:     /custom
+    defaults: { _controller: HostAndGuestBundle:experience:Experience }
+deleteex:
+    path:     /delete/{id}
+    defaults: { _controller: HostAndGuestBundle:experience:Delete}
+ExperiencePersonnalisé:
+    path:     /perso
+    defaults: { _controller: HostAndGuestBundle:experience:ExperiencePersonnalisé }
+CustomDisplay:
+    path:     /consulter/{id}
+    defaults: { _controller: HostAndGuestBundle:experience:displaySingle}
+Like:
+    path:     /jaime/{id}
+    defaults: { _controller: HostAndGuestBundle:experience:Jaime}
+TopEx:
+    path:     /top
+    defaults: { _controller: HostAndGuestBundle:experience:Topexperience}
+UpdateEx:
+    path:     /update/{id}
+    defaults: { _controller: HostAndGuestBundle:experience:ModifyEx}
+displaybackofficeexp:
+    path:     /backexp
+    defaults: { _controller: HostAndGuestBundle:experience:ExpBackoffice}
+effacer:
+    path:     /effacerrr/{id}
+    defaults: { _controller: HostAndGuestBundle:experience:Effacer}
+statpie:
+    path:     /pie
+    defaults: { _controller: HostAndGuestBundle:experience:StatVille}
+statbar:
+    path:     /bar
+    defaults: { _controller: HostAndGuestBundle:experience:CategorieStat}
+DashBord:
+    path:     /dash
+    defaults: { _controller: HostAndGuestBundle:experience:DashBord}
+Admin:
+    path:     /admin
+    defaults: { _controller: HostAndGuestBundle:experience:Admin}
+jaimeplus:
+    path:     /jameplus/{id}
+    defaults: { _controller: HostAndGuestBundle:experience:Jaimeplus}
+
+

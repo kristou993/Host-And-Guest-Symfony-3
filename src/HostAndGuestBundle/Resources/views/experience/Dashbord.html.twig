@@ -1,0 +1,20 @@
+{% extends "@FOSUser/layoutadmin.html.twig" %}
+
+
+
+ {% block contenu %}
+
+
+
+             {{ render(controller("HostAndGuestBundle:experience:StatVille")) }}
+
+<br>
+     <br>
+
+
+             {{ render(controller("HostAndGuestBundle:experience:CategorieStat")) }}
+
+
+
+
+ {% endblock %}

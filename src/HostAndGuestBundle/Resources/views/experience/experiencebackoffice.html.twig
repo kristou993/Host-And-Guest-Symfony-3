@@ -1,0 +1,41 @@
+{% extends "@FOSUser/layoutadmin.html.twig" %}
+
+
+
+ {% block contenu %}
+     <h3 class="title1">   <i class="glyphicon glyphicon-edit"></i> Liste des Experience</h3>
+     <table border="1">
+         <tr>
+             <th class="form-title">Titre</th>
+             <th class="form-title">Ville</th>
+
+             <th class="form-title">Categorie</th>
+             <th class="form-title"> Prix</th>
+             <th class="form-title"> Date Création</th>
+         </tr>
+         {% for modele in modeles %}
+             <tr>
+
+                 <td>{{ modele.titre }}</td>
+                 <td>{{ modele.lieu }}</td>
+                 <td>{{ modele.categorie }}</td>
+                 <td>{{ modele.prix }}</td>
+
+                 <td>{{ modele.datecreation|date('Y-m-d') }}</td>
+                <td> <a href="{{path('effacer',{'id':modele.id})}}" class="btn btn-danger">
+                     <i class="glyphicon glyphicon-erase"></i>
+                     Supprimer
+
+
+
+
+                 </a>
+             </td>
+
+
+             </tr>
+         {% endfor %}
+
+     </table>
+
+ {% endblock %}

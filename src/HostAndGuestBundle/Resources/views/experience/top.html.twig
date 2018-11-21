@@ -1,0 +1,77 @@
+{% extends "@HostAndGuest/layout3.html.twig" %}
+
+
+
+
+
+
+{% block contenu %}
+
+
+
+
+
+<div class="new">
+    <div class="container" >
+
+        <h3 class="title" >Expériences  <span> recommandées</span></h3>
+
+        <br>
+        <hr style="border-color:#b37400">
+        {% for modele in modeles %}
+            <h3 class="title" >      {{ modele.titre }} </h3> <br>
+            {% if  modele.nb > 5 %}
+                <div class="single-rating"  >
+
+                    <span class="on">☆</span>
+                    <span class="on">☆</span>
+                    <span class="on">☆</span>
+                    <span class="on">☆</span>
+                    <span class="on">☆</span>
+                </div>
+            {% endif %}
+
+            <a href=""><img src="{{ asset('Baby/images/'~  modele.images) }}" class="img-responsive" alt=""/></a>
+            <br>
+
+
+
+            <h3>Lieu : {{ modele.lieu }}  </h3> <br>
+
+            <h3>Prix : {{ modele.prix }}  </h3> <br>
+            <h3> Le  {{ modele.date|date('Y-m-d') }} </h3> <br>
+            {% if  modele.nb > 0 %}
+
+
+                <h3> {{ modele.nb }} personnes ont aimé cette expérience</h3>
+            {% endif %}
+            <br>
+
+
+
+
+            <a href="{{path('CustomDisplay',{'id':modele.id})}}" class="btn btn-primary">
+                <i class="glyphicon glyphicon-check"></i>
+                Consulter
+            </a>
+
+
+            <a href="" class="btn btn-danger">
+                <i class="glyphicon glyphicon-envelope"></i>
+                Réclamation
+            </a>
+            <br>
+            <br>
+
+
+            <hr style="border-color:#b37400">
+
+
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+{% endblock %}

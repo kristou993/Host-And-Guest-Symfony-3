@@ -1,0 +1,16 @@
+{% extends "@HostAndGuest/layout3.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block contenu %}
+<div class="new">
+    <div class="container" >
+   <h2 <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p></h2>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+
+    <p> <a href={{ path('fos_user_security_login') }}>Connexion ?</a>.</p>
+    </div>
+</div>
+{% endblock  %}

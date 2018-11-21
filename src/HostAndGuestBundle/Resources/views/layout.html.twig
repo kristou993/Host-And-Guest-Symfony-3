@@ -1,0 +1,72 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+
+
+    {% block head %}
+        <title>{% block title %} Espace User{% endblock %}</title>
+        {% block stylesheet %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href={{ asset('night_sky_2/style/style.css') }} />
+        {% endblock  %}
+    {% endblock  %}
+
+
+<body>
+<div id="main">
+    <div id="header">
+        <div id="logo">
+            <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <h1><a href="index.html">Host<span class="logo_colour">And Guest</span></a></h1>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+                {% endif %}
+                <div id="menubar">
+                    <ul id="menu">
+                        <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+                        <li class="selected"><a href="">Home</a></li>
+                        <li><a href="">Annonces</a></li>
+                        <li><a href="l">SpleetMeeting</a></li>
+                        <li><a href={{ path('FrontOffice') }}>Experiences</a></li>
+                        <li><a href="">Famille d'Accueil</a></li>
+                        <li><a href="{{ path('fos_user_profile_show') }}">Profil</a></li>
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="site_content" >
+
+
+
+        {% block contenu %}
+        {% endblock  %}
+
+
+
+    </div>
+
+    <div id="footer">
+        <p><a href="index.html">Home</a> | <a href="examples.html">Expériences</a> | <a href="page.html">Annonces</a> | <a href="another_page.html">SpleetMeeting</a> | <a href="contact.html"> Famille d'accueil</a></p>
+    </div>
+</div>
+
+</body>
+
+
+</html>

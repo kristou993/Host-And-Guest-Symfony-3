@@ -1,0 +1,82 @@
+{% extends "@HostAndGuest/layout3.html.twig" %}
+
+
+
+
+
+
+{% block contenu %}
+
+
+
+
+
+    <div class="new">
+        <div class="container" >
+
+            <h3 class="title">Mes  <span>Expériences</span></h3>
+
+            <br>
+            <hr style="border-color:#b37400">
+            {% for modele in modeles %}
+                <h3 class="title">      {{ modele.titre }} </h3> <br>
+
+                <a href=""><img src="{{ asset('Baby/images/'~  modele.images) }}" class="img-responsive" alt=""/></a>
+                <br>
+
+
+                <h3  >Description : {{ modele.description }}  </h3> <br>
+                <h3  >Lieu : {{ modele.lieu }}  </h3> <br>
+                <h3>Prix : {{ modele.prix }} $  </h3> <br>
+                <h3> Le  {{ modele.date|date('Y-m-d') }} </h3> <br>
+
+            <h3> Categorie : {{ modele.categorie }}</h3>
+                <br>
+            <a href="{{path('UpdateEx',{'id':modele.id})}}" class="btn btn-primary">
+                <i class="glyphicon glyphicon-pencil"></i>
+                Modifier
+            </a>
+
+            <a href="{{path('deleteex',{'id':modele.id})}}" class="btn btn-danger">
+                <i class="glyphicon glyphicon-erase"></i>
+                Supprimer
+
+
+
+
+            </a>
+                <br>
+                <br>
+                <hr style="border-color:#b37400">
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+

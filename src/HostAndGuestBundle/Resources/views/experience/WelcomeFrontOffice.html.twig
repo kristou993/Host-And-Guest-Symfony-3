@@ -1,0 +1,26 @@
+
+{% extends "@HostAndGuest/layout.html.twig" %}
+{% block head %}
+    <title>
+        {% block title %} {{ parent() }} {% endblock %}
+    </title>
+    {% block stylesheet %}
+
+        <link rel="stylesheet" href="{{ asset('night_sky_2/style/style.css') }}" />
+
+
+    {% endblock %}
+{% endblock %}
+{% block contenu %}
+
+
+
+    <div id="content" class="col-md-9">
+        {% block body %}
+           Welcome User
+        {% endblock %}
+    </div>
+
+
+
+{% endblock %}

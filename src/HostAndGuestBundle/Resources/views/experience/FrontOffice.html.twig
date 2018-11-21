@@ -1,0 +1,100 @@
+
+{% extends "@HostAndGuest/layout3.html.twig" %}
+
+
+
+
+
+
+
+{% block contenu %}
+
+
+
+
+
+<div class="new">
+    <div class="container" >
+
+
+            </ul> <!-- cd-header-buttons -->
+
+        <h3 class="title"> Recherche</h3>
+        <br>
+
+        <form method="post" class="form-inline" >
+            <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre"></input>
+
+            <input type="text" class="form-control" id="titre" name="lieu" placeholder="Lieu"></input>
+            <input type="date" id="date" class="form-control" name="date"> </input>
+
+            <select name="categorie" class="form-control">
+                <option value=""></option>
+                <option  value="sport">Sport</option>
+                <option value="divertisement">Divertisement</option>
+                <option value="lecture">Lecture</option>
+                <option value="culture">Culture</option>
+                <option value="autres">Autres</option>
+            </select>
+            <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Valider"  >   </input>
+        </form>
+<br>
+        <br>
+
+        <h3 class="title">Fil <span>d'actualités</span></h3>
+
+            <br>
+        <hr style="border-color:#b37400">
+
+
+
+            {% for modele in modeles %}
+                <h3 class="title" >  Experience    {{ modele.titre }} </h3> <br>
+
+
+                <a href=""><img src="{{ asset('Baby/images/'~  modele.images) }}" class="img-responsive" alt=""/></a>
+                <br>
+
+
+
+                <h3>Lieu : {{ modele.lieu }}  </h3> <br>
+                <h3>Prix : {{ modele.prix }}  </h3> <br>
+                <h3> Le  {{ modele.date|date('Y-m-d') }} </h3> <br>
+                {% if  modele.nb > 0 %}
+
+
+                <h3> {{ modele.nb }} personnes ont aimé cette expérience</h3>
+                {% endif %}
+                <br>
+
+
+                <a href="{{path('CustomDisplay',{'id':modele.id})}}" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-check"></i>
+                    Consulter
+                </a>
+
+
+                <a href="" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-envelope"></i>
+                    Réclamation
+                </a>
+<br>
+                <br>
+
+
+<hr style="border-color:#b37400">
+
+
+
+            {% endfor %}
+
+
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,57 @@
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div align="center">
+<br>
+    <br>
+
+     <form action="{{ path("fos_user_security_check") }}" method="post" class="form-inline">
+
+
+
+
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+
+
+         <div class="form-group">
+            <h3 class="title"> <label for="email">Username:</label></h3>
+       <input type="text" id="username" name="_username"  required="required"  class="form-control" />
+         </div>
+
+
+
+         <div class="form-group">
+             <h3 class="title"> <label for="email">Password:</label></h3>
+          <input type="password" id="password" name="_password" required="required" class="form-control"  />
+
+
+         </div>
+         <br><br>
+
+    <input   type="checkbox" id="remember_me" name="_remember_me" value="on" />
+         <br>
+     <h2 class= ><label for="remember_me"> se souvenir de moi</label></h2> </a>
+
+
+         <br>
+         <br>
+    <input type="submit" id="_submit" name="_submit" class=" btn btn-primary" value="Connexion" />
+         <br>
+
+         <br>
+
+         <h2>Sign in ? <a href={{ path('fos_user_registration_register') }}>Click here to sign in</a>.</h2>
+         <br>
+         <h2>Forgot your password? <a href={{ path('fos_user_resetting_request' )}}>Click here to reset it</a>.</h2>
+     </form>
+</div>
+
+
+
+
+
+
+

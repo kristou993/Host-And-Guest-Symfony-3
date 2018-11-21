@@ -1,0 +1,54 @@
+{% extends "HostAndGuestBundle:experience:FrontOffice.html.twig" %}
+
+{% block contenu %}
+    <div class="new">
+    <div class="container" >
+
+    <h3 class="title">Formulaire <span></span></h3>
+   <hr style="border-color:#b37400">
+    {{ form_start(ajout) }}
+        <h3 > <label for="email">Titre:</label></h3> <br>
+    {{ form_widget(ajout.titre, {'attr': {'class': 'form-control'}})  }} <br>
+        <h3 > <label for="email">Description:</label></h3> <br>
+        {{ form_widget(ajout.description, {'attr': {'class': 'form-control'}})  }} <br>
+        <h3 > <label for="email">Prix:</label></h3> <br>
+        {{ form_widget(ajout.prix, {'attr': {'class': 'form-control'}})  }} <br>
+        <h3 > <label for="email">Ville:</label></h3> <br>
+    {{ form_widget(ajout.lieu, {'attr': {'class': 'form-control'}})  }} <br>
+    <h3 > <label for="email">Adresse rencontre:</label></h3> <br>
+    {{ form_widget(ajout.rencontrelieu, {'attr': {'class': 'form-control'}})  }} <br>
+
+    <h3 > <label for="email">Critère de participation:</label></h3> <br>
+    {{ form_widget(ajout.critere, {'attr': {'class': 'form-control'}})  }} <br>
+
+    <h3 > <label for="email">capacité groupe</label></h3> <br>
+    {{ form_widget(ajout.capacitegroupe, {'attr': {'class': 'form-control'}})  }} <br>
+    <br>
+        <h3 > <label for="email">Date:</label></h3> <br>
+    {{ form_widget(ajout.date)  }}
+        {% if  vr >= 0 %}
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+
+                <div class="alert alert-danger">
+                    {{ flashMessage }}
+                </div>
+
+            {% endfor %}
+        {% endif %}
+        <h3 > <label for="email">Categorie:</label></h3> <br>
+        {{ form_widget(ajout.categorie) }} <br>
+
+
+    <br>
+
+    <h3 > <label for="email">Image</label></h3>
+        {{ form_widget(ajout.images)  }}
+    <br>
+    <br>
+        {{ form_widget(ajout.save, {'attr': {'class': 'btn btn-primary'}})  }}
+
+
+    {{ form_end (ajout)}}
+    </div>
+    </div>
+{% endblock %}

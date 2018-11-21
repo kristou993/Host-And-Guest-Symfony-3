@@ -1,0 +1,77 @@
+{% extends "@HostAndGuest/layout3.html.twig" %}
+
+
+{% block contenu %}
+<br>
+<div class="new">
+    <div class="container" >
+    <h3 class="title" >{{ modele.titre }}  <span></span></h3>
+        <h3 > Proposé par  : {{ username}}</h3>
+    <hr style="border-color:#b37400">
+    <a href="" ><img src="{{ asset('Baby/images/'~  modele.images) }}" class="img-responsive" alt=""/></a>
+    <hr style="border-color:#b37400" >
+    <br>
+
+    <h3  >         Ville : {{ modele.lieu }}</h3> <br>
+        <h3  > Frais de participation : {{ modele.prix }} $  </h3> <br>
+        <h3 > Le  {{ modele.date|date('Y-m-d') }} </h3> <br>
+    <h3  > Adresse de rencontre:   </h3> <br>
+        <address>{{ modele.rencontrelieu }}</address>
+
+       <script>
+        $(document).ready(function(){
+
+        $("address").each(function(){
+
+
+        var embed ="<iframe width='425' height='350' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?&amp;q="+ encodeURIComponent( $(this).text() ) +"&amp;output=embed'></iframe>";
+
+        $(this).html(embed);
+
+        });
+        });
+
+       </script>
+
+
+       <p> <h3 > Expérience : {{ modele.categorie }}</h3> <br> </p>
+
+
+    <hr style="border-color:#b37400">
+    <h3  >Au programme : {{ modele.description }}  </h3> <br>
+<hr style="border-color:#b37400">
+        <h3  > Critère de participation : {{ modele.critere }}</h3></br>
+    <h3  > Capacité de groupe : {{ modele.capacitegroupe }}</h3>
+    <hr style="border-color:#b37400">
+        {% if  vr >0 %}
+            <a href="{{path('jaimeplus',{'id':modele.id})}}" class="btn btn-primary">
+                <i class="glyphicon glyphicon-thumbs-down"></i>
+                J'aime plus
+            </a>
+        {% else %}
+            <a href="{{path('Like',{'id':modele.id})}}" class="btn btn-primary">
+                <i class="glyphicon glyphicon-heart"></i>
+                J'aime
+            </a>
+        {% endif %}
+
+
+
+
+<a href=""  class="btn btn-success"  >
+    <i  class="glyphicon glyphicon-pencil"></i>
+    Réserver
+</a>
+
+<a href="" class="btn btn-danger">
+    <i class="glyphicon glyphicon-envelope"></i>
+    Réclamation
+
+</a>
+
+    </div>
+</div>
+{% endblock %}
+
+
+

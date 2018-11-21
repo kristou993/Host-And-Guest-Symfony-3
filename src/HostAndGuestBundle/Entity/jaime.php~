@@ -1,0 +1,50 @@
+<?php
+
+namespace HostAndGuestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * jaime
+ *
+ * @ORM\Table(name="jaime")
+ * @ORM\Entity(repositoryClass="HostAndGuestBundle\Repository\jaimeRepository")
+ */
+class jaime
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="experience")
+     * @ORM\JoinColumn(name="experience_id", referencedColumnName="id")
+     */
+    private $experience;
+
+
+
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+
